@@ -1,17 +1,20 @@
-# Thumbnail Workshop
+# Thumbnail Workshop v2
 
-AI-powered YouTube thumbnail generator using Google Gemini's image models. Generate thumbnails with one click and get 4 style variations instantly.
+AI-powered YouTube thumbnail generator using Google Gemini. Generate thumbnails with one click, get 4 style variations, iterate fast.
 
 ## Features
 
 - **3 Models**: Nano Banana ($0.039), Nano Banana 2 ($0.067), Nano Banana Pro ($0.134)
-- **4 Style Variations**: Original, Black & White, Dramatic B&W (high contrast + vignette), Vintage
-- **Contrast Boost**: Per-card toggle for micro-contrast + saturation enhancement
-- **Reference Image**: Upload a reference photo to guide Gemini's generation
-- **Text Space**: Left/Right/Centered toggle — leaves empty space for text overlays
-- **Resolution Toggle**: 1K (default) or 2K output
-- **API Key Validation**: Test button verifies your key before generating
-- **YouTube Ready**: All downloads are exactly 1280×720 pixels
+- **4 Effects**: Original, Dramatic B&W, Vintage, Military (olive green)
+- **Contrast Boost**: Per-card toggle with balanced midtone formula
+- **Multiple References**: Up to 3 reference images, drag outputs back as references
+- **Text Space**: Left/Right/Center toggle for text overlay composition
+- **Resolution**: 1K / 2K toggle
+- **API Key Memory**: Saved in browser, enter once
+- **Image Zoom**: Double-click any result for fullscreen view
+- **Dark/Light Mode**: Sun/Moon toggle, preference saved
+- **Dot Grid Background**: Subtle graph paper aesthetic
+- **YouTube Ready**: All downloads exactly 1280×720
 - **Bring Your Own Key**: Each user provides their own Gemini API key
 - **1 API call = 4 variants**: CSS filters create variations for free in your browser
 
@@ -19,10 +22,10 @@ AI-powered YouTube thumbnail generator using Google Gemini's image models. Gener
 
 ### Step 1: Push to GitHub
 
-1. Create a new repo at [github.com/new](https://github.com/new)
-2. Name it `thumbnail-workshop`
-3. Run:
-
+1. Create a new repository on [github.com/new](https://github.com/new)
+2. Name it `thumbnail-workshop` (or whatever you like)
+3. Keep it public or private — your choice
+4. Run these commands in your terminal:
 ```bash
 cd thumbnail-workshop
 git init
@@ -35,22 +38,29 @@ git push -u origin main
 
 ### Step 2: Deploy on Vercel
 
-1. Go to [vercel.com](https://vercel.com), sign in with GitHub
+1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
 2. Click **"Add New Project"**
-3. Import your `thumbnail-workshop` repo
-4. Click **Deploy** — Vercel auto-detects Next.js
-5. Your app is live at `thumbnail-workshop.vercel.app`
+3. Import your `thumbnail-workshop` repository
+4. Click **Deploy** — no settings to change, Vercel auto-detects Next.js
+5. Wait ~60 seconds — you'll get a URL like `thumbnail-workshop.vercel.app`
+
+Done! Your app is live.
+
+## Update Existing Deployment
+
+1. Edit files on GitHub (or re-upload)
+2. Vercel auto-redeploys in ~30 seconds
+3. Your live site updates automatically
 
 ## Get a Gemini API Key
 
 1. Go to [Google AI Studio](https://aistudio.google.com/apikey)
 2. Click "Create API Key"
-3. Paste it into the app and click "Test key"
+3. Paste it into the app and click "Test"
 
-Free tier: ~500 image generations per day.
+Free tier gives you ~500 image generations per day.
 
 ## Local Development
-
 ```bash
 npm install
 npm run dev
@@ -66,6 +76,19 @@ Open [http://localhost:3000](http://localhost:3000).
 | Models | `MODELS` array in `app/page.js` |
 | Boost intensity | `BOOST_FILTER` constant in `app/page.js` |
 | Prompt template | `generate` function in `app/page.js` |
-| Styling / theme | `app/globals.css` |
+| Colors / theme | CSS variables in `app/globals.css` |
+| Max reference images | `MAX_REFS` constant in `app/page.js` |
 
-Push changes to GitHub → Vercel auto-redeploys in ~30 seconds.
+After making changes, push to GitHub and Vercel auto-redeploys in ~30 seconds.
+
+## What's New in v2
+
+- Redesigned layout — settings left, workspace right
+- Dark/Light mode with dot grid background
+- API key persists in browser (enter once)
+- Double-click any result for fullscreen zoom
+- Drag outputs directly into reference slots
+- Up to 3 reference images
+- New Military effect (olive green tint)
+- Balanced boost formula (no more lopsided contrast)
+- Plain B&W removed, replaced with Military
